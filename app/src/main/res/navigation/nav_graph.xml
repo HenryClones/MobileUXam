@@ -7,22 +7,13 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.mobileuxam.FirstFragment"
+        android:name="com.example.mobileuxam.ExamQuestionFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.mobileuxam.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_change_question"
             app:destination="@id/FirstFragment" />
+        <argument android:name="question" app:argType="kotlin.Int" android:defaultValue="1"/>
     </fragment>
 </navigation>
