@@ -3,17 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/instructionsFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.mobileuxam.ExamQuestionFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/instructionsFragment"
+        android:name="com.example.mobileuxam.InstructionsFragment"
+        android:label="fragment_instructions"
+        tools:layout="@layout/fragment_instructions" >
         <action
-            android:id="@+id/action_change_question"
-            app:destination="@id/FirstFragment" />
-        <argument android:name="question" app:argType="kotlin.Int" android:defaultValue="1"/>
+            android:id="@+id/start"
+            app:destination="@id/examQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/examQuestionFragment"
+        android:name="com.example.mobileuxam.ExamQuestionFragment"
+        android:label="fragment_exam_question"
+        tools:layout="@layout/fragment_exam_question" >
+        <action
+            android:id="@+id/changeQuestion"
+            app:destination="@id/examQuestionFragment" />
+        <action
+            android:id="@+id/endExam"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.mobileuxam.ResultsFragment"
+        android:label="fragment_results"
+        tools:layout="@layout/fragment_results" >
+        <action
+            android:id="@+id/restart"
+            app:destination="@id/instructionsFragment" />
     </fragment>
 </navigation>
