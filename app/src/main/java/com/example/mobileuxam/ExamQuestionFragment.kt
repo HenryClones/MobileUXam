@@ -14,6 +14,8 @@ class ExamQuestionFragment : Fragment() {
     }
 
     private val viewModel: ExamQuestionViewModel by viewModels()
+    private var _binding: View? = null
+    private val binding: View = checkNotNull(_binding, { "View did not inflate!" })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,10 @@ class ExamQuestionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_exam_question, container, false)
+        _binding = inflater.inflate(R.layout.fragment_exam_question, container, false)
+        binding.apply {
+
+        }
+        return binding
     }
 }
