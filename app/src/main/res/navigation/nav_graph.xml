@@ -18,6 +18,9 @@
         android:name="com.example.mobileuxam.ExamQuestionFragment"
         android:label="fragment_exam_question"
         tools:layout="@layout/fragment_exam_question" >
+        <argument
+            android:name="question"
+            app:argType="integer"/>
         <action
             android:id="@+id/changeQuestion"
             app:destination="@id/examQuestionFragment" />

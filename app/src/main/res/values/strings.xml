@@ -9,4 +9,6 @@
     <string name="question_label">Question</string>
     <string name="tru">True</string>
     <string name="fals">False</string>
+    <string name="restart">restart</string>
+    <string name="share">Share</string>
 </resources>

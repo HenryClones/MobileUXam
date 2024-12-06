@@ -6,8 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.mobileuxam.databinding.FragmentExamQuestionBinding
+import com.example.mobileuxam.databinding.FragmentResultsBinding
 
 class ResultsFragment : Fragment() {
+    private var _binding: FragmentResultsBinding? = null
+    private val binding: FragmentResultsBinding
+        get() = checkNotNull(_binding) { "View did not inflate!" }
 
     companion object {
         fun newInstance() = ResultsFragment()
@@ -25,6 +31,13 @@ class ResultsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_results, container, false)
+        _binding = FragmentResultsBinding.inflate(inflater, container, false)
+        binding.apply {
+            results.text = "Score: 50%, Current Global Average: 66%"
+            restart.setOnClickListener {
+                findNavController().navigate(ResultsFragmentDirections.restart())
+            }
+        }
+        return binding.root
     }
 }
