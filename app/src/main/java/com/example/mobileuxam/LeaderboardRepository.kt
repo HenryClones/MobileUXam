@@ -33,4 +33,12 @@ class LeaderboardRepository {
 
         leaderboardAPI = retrofit.create()
     }
+
+    suspend fun getAverageGood(): Float {
+        return leaderboardAPI.getAverageGood()
+    }
+
+    suspend fun getAverageBad(): Float {
+        return leaderboardAPI.getAverageBad()
+    }
 }

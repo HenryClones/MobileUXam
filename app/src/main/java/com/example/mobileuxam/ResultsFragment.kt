@@ -38,8 +38,8 @@ class ResultsFragment : Fragment() {
     ): View {
         _binding = FragmentResultsBinding.inflate(inflater, container, false)
         binding.apply {
-            val averageBad: Float  = 50f
-            val averageGood: Float = 50f
+            val averageBad: Float  = viewModel.averageGood
+            val averageGood: Float = viewModel.averageBad
             results.text = requireContext().resources.getString(R.string.results_text).format(viewModel.results.percentGoodCorrect, averageGood, viewModel.results.percentBadCorrect, averageBad)
             restart.setOnClickListener {
                 findNavController().navigate(ResultsFragmentDirections.restart())

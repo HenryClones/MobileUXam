@@ -10,6 +10,6 @@
     <string name="share_via">Share via...</string>
     <string name="share">Share</string>
     <string name="share_subject">MobileUXam score</string>
-    <string name="share_text">I took a difficult quiz called MobileUXam! I scored %f on the easy and %f on the hard questions!</string>
-    <string name="results_text">Easy Problems: %3f (Average: %3f)\nHard Problems: %3f (Average: %3f)</string>
+    <string name="share_text">I took a difficult quiz called MobileUXam! I scored %.3f on the easy and %.3f on the hard questions!</string>
+    <string name="results_text">Easy Problems: %.3f (Average: %.3f)\nHard Problems: %.3f (Average: %.3f)</string>
 </resources>

@@ -6,9 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface LeaderboardAPI {
-    @POST("/moment")
+    @POST("/")
     suspend fun sendScore(@Body score: Score)
 
-    @GET("/moment")
-    suspend fun fetchScores(): List<Score>
+    @GET("/")
+    suspend fun getAverageBad(): Float
+
+    @GET("/")
+    suspend fun getAverageGood(): Float
 }
