@@ -41,4 +41,8 @@ class LeaderboardRepository {
     suspend fun getAverageBad(): Float {
         return leaderboardAPI.getAverageBad()
     }
+
+    suspend fun sendScore(score: Score): Unit {
+        leaderboardAPI.sendScore(score)
+    }
 }

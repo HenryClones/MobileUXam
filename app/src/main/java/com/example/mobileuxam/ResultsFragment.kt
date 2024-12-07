@@ -48,6 +48,7 @@ class ResultsFragment : Fragment() {
                 shareScore()
             }
         }
+        
         return binding.root
     }
 
