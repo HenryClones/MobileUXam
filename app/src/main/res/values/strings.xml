@@ -2,13 +2,14 @@
     <string name="app_name">MobileUXam</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="instructions">Instructions page placeholder</string>
-    <string name="results">Results page placeholder</string>
     <string name="question_label">Question</string>
     <string name="tru">True</string>
     <string name="fals">False</string>
     <string name="restart">Restart</string>
     <string name="share_via">Share via...</string>
     <string name="share">Share</string>
+    <string name="share_subject">MobileUXam score</string>
+    <string name="share_text">I took a difficult quiz called MobileUXam! I scored %f on the easy and %f on the hard questions!</string>
+    <string name="results_text">Easy Problems: %3f (Average: %3f)\nHard Problems: %3f (Average: %3f)</string>
 </resources>

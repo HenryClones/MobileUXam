@@ -38,9 +38,14 @@ class ResultsFragment : Fragment() {
     ): View {
         _binding = FragmentResultsBinding.inflate(inflater, container, false)
         binding.apply {
-            results.text = "Score: 50%, Current Global Average: 66%"
+            val averageBad: Float  = 50f
+            val averageGood: Float = 50f
+            results.text = requireContext().resources.getString(R.string.results_text).format(viewModel.results.percentGoodCorrect, averageGood, viewModel.results.percentBadCorrect, averageBad)
             restart.setOnClickListener {
                 findNavController().navigate(ResultsFragmentDirections.restart())
+            }
+            shareButton.setOnClickListener {
+                shareScore()
             }
         }
         return binding.root
@@ -60,8 +65,8 @@ class ResultsFragment : Fragment() {
         viewModel.results.let {
             val reportIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT, it.percentBad)
-                putExtra(Intent.EXTRA_SUBJECT, it.total)
+                putExtra(Intent.EXTRA_TEXT, requireContext().resources.getString(R.string.share_text).format(it.percentGoodCorrect, it.percentBadCorrect))
+                putExtra(Intent.EXTRA_SUBJECT, R.string.share_subject)
             }
 
             val chooserIntent = Intent.createChooser(
@@ -69,7 +74,9 @@ class ResultsFragment : Fragment() {
                 getString(R.string.share_via)
             )
 
-            startActivity(chooserIntent)
+            if (canResolveIntent(chooserIntent) && canResolveIntent(reportIntent)) {
+                startActivity(chooserIntent)
+            }
         }
     }
 }
