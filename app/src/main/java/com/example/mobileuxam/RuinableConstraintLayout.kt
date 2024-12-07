@@ -16,7 +16,7 @@ class RuinableConstraintLayout : ConstraintLayout, ViewRuinerComponent {
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
         if (Random.nextBoolean()) {
-            canvas.drawColor(0)
+            canvas.rotate(90.0f)
         }
     }
 }

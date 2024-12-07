@@ -9,6 +9,7 @@
     <string name="question_label">Question</string>
     <string name="tru">True</string>
     <string name="fals">False</string>
-    <string name="restart">restart</string>
+    <string name="restart">Restart</string>
+    <string name="share_via">Share via...</string>
     <string name="share">Share</string>
 </resources>

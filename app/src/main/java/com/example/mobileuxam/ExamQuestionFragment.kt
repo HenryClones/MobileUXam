@@ -56,9 +56,9 @@ class ExamQuestionFragment : Fragment() {
 
     fun nextQuestion() {
         if (questions.size == questionNo + 1) {
-            findNavController().navigate(ExamQuestionFragmentDirections.endExam())
+            findNavController().navigate(ExamQuestionFragmentDirections.endExam(viewModel.score))
         } else {
-            findNavController().navigate(ExamQuestionFragmentDirections.changeQuestion(questionNo + 1))
+            findNavController().navigate(ExamQuestionFragmentDirections.changeQuestion(questionNo + 1, viewModel.score))
         }
     }
 }

@@ -21,6 +21,10 @@
         <argument
             android:name="question"
             app:argType="integer"/>
+        <argument
+            android:name="results"
+            app:argType="com.example.mobileuxam.Score"
+            app:nullable="true"/>
         <action
             android:id="@+id/changeQuestion"
             app:destination="@id/examQuestionFragment" />
@@ -33,6 +37,9 @@
         android:name="com.example.mobileuxam.ResultsFragment"
         android:label="fragment_results"
         tools:layout="@layout/fragment_results" >
+        <argument
+            android:name="results"
+            app:argType="com.example.mobileuxam.Score" />
         <action
             android:id="@+id/restart"
             app:destination="@id/instructionsFragment" />

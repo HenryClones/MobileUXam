@@ -8,10 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mobileuxam.databinding.FragmentInstructionsBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "question"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [InstructionsFragment.newInstance] factory method to
@@ -30,22 +26,13 @@ class InstructionsFragment : Fragment() {
         _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
         binding.apply {
             start.setOnClickListener {
-                findNavController().navigate(InstructionsFragmentDirections.start(0))
+                findNavController().navigate(InstructionsFragmentDirections.start(0, Score()))
             }
         }
         return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment InstructionsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() = InstructionsFragment()
     }
