@@ -3,6 +3,16 @@
     <string-array name="questions">
         <item>Tulips are a flower.</item>
         <item>The most common eye color is blue.</item>
+        <item>This app is running.</item>
+        <item>You exist.</item>
+        <item>The angles of a triangle add up to 360.</item>
+        <item>The sky is blue.</item>
+        <item>The sun will fall out of the sky in 3 years.</item>
+        <item>The questions of this exam are designed to be easy.</item>
+        <item>This exam is designed to demonstrate the importance of UX.</item>
+        <item>Contributing to Open Source projects is a way to build rapport and skill.</item>
+        <item>AI has completely taken over my university and homework now comes with a CAPTCHA.</item>
+        <item>AI has, without exaggeration, fully conquered every video and board game.</item>
     </string-array>
 
 </resources>
