@@ -33,11 +33,11 @@ class Score(@Json(ignore=true) val results: ArrayList<Question> = ArrayList<Ques
     val total: Int get() {return badUx + goodUx}
     var percentBadCorrect: Float = 0.0f;
     fun computePercentBadCorrect() {
-        percentBadCorrect = if (badUx > 0) badUxCorrect.toFloat() / badUx.toFloat() * 100 else 0.0f
+        percentBadCorrect = if (badUx > 0) badUxCorrect.toFloat() / badUx.toFloat() * 100.0f else 0.0f
     }
     var percentGoodCorrect: Float = 0.0f;
     fun computePercentGoodCorrect() {
-        percentGoodCorrect = if (goodUx > 0) goodUxCorrect.toFloat() / goodUx.toFloat() * 100 else 0.0f
+        percentGoodCorrect = if (goodUx > 0) goodUxCorrect.toFloat() / goodUx.toFloat() * 100.0f else 0.0f
     }
 
     constructor(parcel: Parcel) : this(parcel.createTypedArrayList(Question) ?: ArrayList<Question>()) {

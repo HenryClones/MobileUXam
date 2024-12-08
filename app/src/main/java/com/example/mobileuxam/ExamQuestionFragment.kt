@@ -30,6 +30,7 @@ class ExamQuestionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.score = args.results ?: Score()
         questionNo = args.toBundle().getInt("question", 1)
         questions = requireActivity().resources.getStringArray(R.array.questions)
         answers = requireActivity().resources.getIntArray(R.array.answers)
