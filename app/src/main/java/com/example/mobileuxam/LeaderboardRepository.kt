@@ -25,12 +25,8 @@ class LeaderboardRepository {
             .add(LeaderboardAdapter())
             .build()
 
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-
         val okHttpClient = OkHttpClient.Builder()
             .callTimeout(30, TimeUnit.SECONDS)
-            .addInterceptor(interceptor)
             .build()
 
         val retrofit: Retrofit = Retrofit.Builder()

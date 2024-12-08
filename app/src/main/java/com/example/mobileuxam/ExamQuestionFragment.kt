@@ -1,5 +1,6 @@
 package com.example.mobileuxam
 
+import android.annotation.SuppressLint
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mobileuxam.databinding.FragmentExamQuestionBinding
+import kotlin.random.Random
 
 class ExamQuestionFragment : Fragment() {
 
@@ -34,20 +36,32 @@ class ExamQuestionFragment : Fragment() {
         answer = answers[questionNo]
     }
 
+    @SuppressLint("SetTextI18n") // Whoever wrote this check didn't quite pay any attention?
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentExamQuestionBinding.inflate(inflater, container, false)
+        var ruination = IntArray(0)
+        if (Random.nextBoolean()) {
+            ruination = IntArray(1)
+            ruination[0] = 1
+            RuinableConstraintLayout.justMessMyStuffUp = true
+        } else {
+            RuinableConstraintLayout.justMessMyStuffUp = false
+        }
+
         binding.apply {
             questionNumber.text = (questionNo + 1).toString()
             questionText.text = questions[questionNo]
 
             buttonTrue.setOnClickListener {
+                viewModel.score.results.add(Question(questionNo, ruination, answer == 1))
                 nextQuestion()
             }
 
             buttonFalse.setOnClickListener {
+                viewModel.score.results.add(Question(questionNo, ruination, answer == 0))
                 nextQuestion()
             }
         }

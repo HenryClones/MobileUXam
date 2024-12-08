@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class Score(@Json(ignore=true) val results: Array<Question> = emptyArray()): Parcelable {
+class Score(@Json(ignore=true) val results: ArrayList<Question> = ArrayList<Question>()): Parcelable {
     @Json(ignore=true)
     private val goodUx: Int get() {return results.sumOf {q ->
         // This is NOT a useless cast, Kotlin!
@@ -40,7 +40,7 @@ class Score(@Json(ignore=true) val results: Array<Question> = emptyArray()): Par
         percentGoodCorrect = if (goodUx > 0) goodUxCorrect.toFloat() / goodUx.toFloat() * 100 else 0.0f
     }
 
-    constructor(parcel: Parcel) : this(parcel.createTypedArray(Question) ?: emptyArray()) {
+    constructor(parcel: Parcel) : this(parcel.createTypedArrayList(Question) ?: ArrayList<Question>()) {
     }
 
     override fun describeContents(): Int {
@@ -49,7 +49,7 @@ class Score(@Json(ignore=true) val results: Array<Question> = emptyArray()): Par
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
-        dest.writeParcelableArray(results, flags)
+        dest.writeParcelableList(results, flags)
     }
 
     companion object CREATOR : Parcelable.Creator<Score> {
