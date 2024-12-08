@@ -29,7 +29,10 @@ class ResultsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.averageGoodCallback = Runnable { updateScore() }
+        viewModel.averageBadCallback = Runnable { updateScore() }
         viewModel.results = args.results
+        viewModel.sendScore()
     }
 
     override fun onCreateView(
@@ -40,7 +43,7 @@ class ResultsFragment : Fragment() {
         binding.apply {
             val averageBad: Float  = viewModel.averageGood
             val averageGood: Float = viewModel.averageBad
-            results.text = requireContext().resources.getString(R.string.results_text).format(viewModel.results.percentGoodCorrect, averageGood, viewModel.results.percentBadCorrect, averageBad)
+
             restart.setOnClickListener {
                 findNavController().navigate(ResultsFragmentDirections.restart())
             }
@@ -48,8 +51,13 @@ class ResultsFragment : Fragment() {
                 shareScore()
             }
         }
-        
         return binding.root
+    }
+
+    private fun updateScore() {
+        binding.results.text = requireContext().resources.getString(R.string.results_text)
+            .format(viewModel.results.percentGoodCorrect, viewModel.averageGood,
+                    viewModel.results.percentBadCorrect,  viewModel.averageBad)
     }
 
     private fun canResolveIntent(intent: Intent): Boolean {

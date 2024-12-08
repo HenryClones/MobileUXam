@@ -1,27 +1,29 @@
 package com.example.mobileuxam
 
+import android.os.Handler.Callback
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class ResultsViewModel : ViewModel() {
-    private val _averageGood: Float? = null
-    private val _averageBad:  Float? = null
+    private var _results: Results? = null
     private val leaderboardRepository = LeaderboardRepository()
-    val averageGood: Float get() {return _averageGood ?: 0f}
-    val averageBad:  Float get() {return _averageBad  ?: 0f}
+    var results: Score = Score()
+    val averageGood: Float get() {return _results?.averageGood ?: Float.NaN}
+    val averageBad:  Float get() {return _results?.averageBad  ?: Float.NaN}
+    var averageGoodCallback: Runnable? = null
+    var averageBadCallback:  Runnable? = null
+
     init {
         viewModelScope.launch {
-            leaderboardRepository.getAverageBad()
-        }
-        viewModelScope.launch {
-            leaderboardRepository.getAverageGood()
+            _results = leaderboardRepository.getResults()
+            averageBadCallback ?.run()
         }
     }
 
-    fun sendScore(score: Score) {
+    fun sendScore() {
         viewModelScope.launch {
-            leaderboardRepository.sendScore(score)
+            leaderboardRepository.sendScore(results)
         }
     }
 }

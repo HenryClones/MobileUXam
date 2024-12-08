@@ -67,6 +67,8 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit)
     implementation(libs.converter.scalars)
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.0")
+    implementation(libs.moshi.kotlin.codegen)
     ksp(libs.androidx.room.compiler)
     ksp(libs.moshi.kotlin.codegen)
 }

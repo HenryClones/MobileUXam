@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Score(val results: Array<Question> = emptyArray()): Parcelable {
+class Score(@Json(ignore=true) val results: Array<Question> = emptyArray()): Parcelable {
     @Json(ignore=true)
     private val goodUx: Int get() {return results.sumOf {q ->
         // This is NOT a useless cast, Kotlin!
@@ -31,8 +31,14 @@ data class Score(val results: Array<Question> = emptyArray()): Parcelable {
     }}
     @Json(ignore=true)
     val total: Int get() {return badUx + goodUx}
-    val percentBadCorrect: Float get() {return badUxCorrect.toFloat() / badUx.toFloat()}
-    val percentGoodCorrect: Float get() {return goodUxCorrect.toFloat() / goodUx.toFloat()}
+    var percentBadCorrect: Float = 0.0f;
+    fun computePercentBadCorrect() {
+        percentBadCorrect = if (badUx > 0) badUxCorrect.toFloat() / badUx.toFloat() * 100 else 0.0f
+    }
+    var percentGoodCorrect: Float = 0.0f;
+    fun computePercentGoodCorrect() {
+        percentGoodCorrect = if (goodUx > 0) goodUxCorrect.toFloat() / goodUx.toFloat() * 100 else 0.0f
+    }
 
     constructor(parcel: Parcel) : this(parcel.createTypedArray(Question) ?: emptyArray()) {
     }

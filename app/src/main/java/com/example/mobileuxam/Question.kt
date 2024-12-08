@@ -2,7 +2,9 @@ package com.example.mobileuxam
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class Question(val questionNumber: Int, val uxRuination: IntArray, val correct: Boolean): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

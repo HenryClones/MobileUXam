@@ -2,6 +2,7 @@ package com.example.mobileuxam
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +17,8 @@ class RuinableConstraintLayout : ConstraintLayout, ViewRuinerComponent {
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
         if (Random.nextBoolean()) {
-            canvas.rotate(90.0f)
+            canvas.rotate(180.0f)
+            canvas.drawColor(Color.argb(10, 240, 240, 240))
         }
     }
 }
