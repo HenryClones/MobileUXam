@@ -7,9 +7,11 @@
     <string name="tru">True</string>
     <string name="fals">False</string>
     <string name="restart">Restart</string>
-    <string name="share_via">Share via...</string>
+    <string name="share_via">Share via…</string>
     <string name="share">Share</string>
     <string name="share_subject">MobileUXam score</string>
     <string name="share_text">I took a difficult quiz called MobileUXam! I scored %.3f on the easy and %.3f on the hard questions!</string>
     <string name="results_text">Easy Problems: %.3f (Average: %.3f)\nHard Problems: %.3f (Average: %.3f)</string>
+    <string name="take_test_unlimited_time">Take test</string>
+    <string name="instruction_text">This is an exam containing easy questions that are made unusually difficult by altering the contrast of the page. There is no time limit. You will be scored separately based on your answers to the easy/hard to read questions. While this is frustrating, the goal is to spread awareness about the importance of contrast in UX design. The interface is extensible and should support more changes to the user experience. Please remember that this is a learning experience and be sure to integrate beneficial UX practices into your workflow.</string>
 </resources>
